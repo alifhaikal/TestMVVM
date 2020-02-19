@@ -1,8 +1,10 @@
-package my.dev.testmvvm;
+package my.dev.testmvvm.view;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import my.dev.testmvvm.R;
 
 public class MainActivity extends AppCompatActivity {
 
