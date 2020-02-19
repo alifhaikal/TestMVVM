@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="my.dev.testmvvm.viewmodel.LoginViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,6 +22,7 @@
             android:layout_marginTop="@dimen/dm_200"
             android:layout_marginEnd="@dimen/dm_50"
             android:hint="@string/email"
+            android:text="@={viewModel.userEmail}"
             android:inputType="textEmailAddress"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -26,6 +35,7 @@
             android:layout_marginStart="@dimen/dm_50"
             android:layout_marginEnd="@dimen/dm_50"
             android:hint="@string/password"
+            android:text="@={viewModel.userPassword}"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,6 +46,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dm_20"
             android:text="@string/enter"
+            android:onClick="@{() -> viewModel.onLoginClicked()}"
+            bind:toastMessage="@{viewModel.toastMessage}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etPassword" />
